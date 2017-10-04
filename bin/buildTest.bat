@@ -1,0 +1,1 @@
+javac -cp "classes;.\src\test\resources\junit-4.11.jar" -d .\classes\ .\src\test\java\is\ru\stringcalculator\CalculatorTest.java

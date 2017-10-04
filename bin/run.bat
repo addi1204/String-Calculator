@@ -1,1 +1,1 @@
-java -cp ".;classes" is.ru.hugb.tdd
+java -cp ".;classes" is.ru.stringcalculator.Calculator
