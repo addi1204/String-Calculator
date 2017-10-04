@@ -1,12 +1,14 @@
 package is.ru.stringcalculator;
 
 public class Calculator {
+
+  static String baseDelimiters[] = {",", "\n"};
   
   public static int add(String text){
     if(text.equals(""))
         return 0;
     else
-        if(text.contains(",") || text.contains("\n")){
+        if(textContainsAnyOf(text, baseDelimiters)){
             String numbers[] = text.split(",|\n");
             return sum(numbers);
         }
@@ -23,5 +25,13 @@ public class Calculator {
         total += toInt(number);
     }  
     return total;
+  }
+
+  private static boolean textContainsAnyOf(String text, String [] theseDelimiters){
+    for(String delimiter : theseDelimiters){
+      if(text.contains(delimiter))
+        return true;
+    }
+    return false;
   }
 } 
