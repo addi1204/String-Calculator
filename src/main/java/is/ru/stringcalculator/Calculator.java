@@ -21,9 +21,19 @@ public class Calculator {
 
   private static int sum(String [] numbers){
     int total = 0;
+    int newNumb;
+    String negativeNumbers = "";
     for(String number : numbers){
-        total += toInt(number);
+        newNumb = toInt(number);
+        if(newNumb < 0)
+          if(negativeNumbers == "")
+            negativeNumbers = number;
+          else
+            negativeNumbers += ","+number;
+        total += newNumb;
     }  
+    if(negativeNumbers != "")
+      throw new ArithmeticException("Negatives not allowed:" + negativeNumbers);
     return total;
   }
 

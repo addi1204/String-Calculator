@@ -1,6 +1,7 @@
 package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class CalculatorTest {
@@ -30,6 +31,17 @@ public class CalculatorTest {
   public void testNewLineDelim() {
     assertEquals(6, Calculator.add("1\n2,3"));
     assertEquals(6, Calculator.add("1\n2\n3"));
+  }
+
+  @Test
+  public void testNegativesException() {
+    boolean thrown = false;
+    try {
+      Calculator.add("-1,2");
+    } catch (ArithmeticException e) {
+      thrown = true;
+    }
+    assertTrue(thrown);
   }
 
 } 
