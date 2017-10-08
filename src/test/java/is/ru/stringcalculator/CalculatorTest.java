@@ -55,4 +55,9 @@ public class CalculatorTest {
     assertTrue(thrown);
   }
 
+  @Test
+  public void testOverThousand() {
+    assertEquals(2, Calculator.add("1001,2"));
+  }
+
 } 

@@ -26,6 +26,8 @@ public class Calculator {
     int newNumb;
     for(String number : numbers){
         newNumb = toInt(number);
+        if(newNumb > 1000)
+          newNumb = 0;
         total += newNumb;
     }  
     return total;
