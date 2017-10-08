@@ -34,6 +34,17 @@ public class CalculatorTest {
   }
 
   @Test
+  public void testNegativeException() {
+    boolean thrown = false;
+    try {
+      Calculator.add("-1");
+    } catch (ArithmeticException e) {
+      thrown = true;
+    }
+    assertTrue(thrown);
+  }
+
+  @Test
   public void testNegativesException() {
     boolean thrown = false;
     try {

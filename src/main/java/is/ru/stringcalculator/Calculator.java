@@ -12,7 +12,8 @@ public class Calculator {
             String numbers[] = text.split(",|\n");
             return sum(numbers);
         }
-        return toInt(text);
+        String singleSizeArr[] = new String[] {text};
+        return sum(singleSizeArr);
   }
 
   private static int toInt(String number){
@@ -20,21 +21,29 @@ public class Calculator {
   }
 
   private static int sum(String [] numbers){
+    checkForNegatives(numbers);
     int total = 0;
     int newNumb;
-    String negativeNumbers = "";
     for(String number : numbers){
         newNumb = toInt(number);
-        if(newNumb < 0)
-          if(negativeNumbers == "")
-            negativeNumbers = number;
-          else
-            negativeNumbers += ","+number;
         total += newNumb;
+    }  
+    return total;
+  }
+
+  private static void checkForNegatives(String [] numbers){
+    String negativeNumbers = "";
+    int newNumb;
+    for(String number : numbers){
+      newNumb = toInt(number);
+      if(newNumb < 0)
+        if(negativeNumbers == "")
+          negativeNumbers = number;
+        else
+          negativeNumbers += ","+number;
     }  
     if(negativeNumbers != "")
       throw new ArithmeticException("Negatives not allowed:" + negativeNumbers);
-    return total;
   }
 
   private static boolean textContainsAnyOf(String text, String [] theseDelimiters){
