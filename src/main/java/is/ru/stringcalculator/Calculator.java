@@ -26,9 +26,7 @@ public class Calculator {
     int newNumb;
     for(String number : numbers){
         newNumb = toInt(number);
-        if(newNumb > 1000)
-          newNumb = 0;
-        total += newNumb;
+        total += ignoreOver1000(newNumb);
     }  
     return total;
   }
@@ -54,5 +52,12 @@ public class Calculator {
         return true;
     }
     return false;
+  }
+
+  private static int ignoreOver1000(int numb){
+    if(numb > 1000)
+      return 0;
+    else
+      return numb;
   }
 } 
