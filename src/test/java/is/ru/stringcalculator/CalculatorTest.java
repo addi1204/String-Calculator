@@ -6,34 +6,34 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
-  @Test
+  @Test // 1
   public void testEmptyString() {
     assertEquals(0, Calculator.add(""));
   }
 
-  @Test
+  @Test // 2
   public void testOneNumber() {
     assertEquals(1, Calculator.add("1"));
     assertEquals(2, Calculator.add("2"));
   }
 
-  @Test
+  @Test // 3
   public void testTwoNumber() {
     assertEquals(3, Calculator.add("1,2"));
   }
 
-  @Test
+  @Test // 4
   public void testMultipleNumber() {
     assertEquals(6, Calculator.add("1,2,3"));
   }
 
-  @Test
+  @Test // 5
   public void testNewLineDelim() {
     assertEquals(6, Calculator.add("1\n2,3"));
     assertEquals(6, Calculator.add("1\n2\n3"));
   }
 
-  @Test
+  @Test // 6
   public void testNegativeException() {
     boolean thrown = false;
     try {
@@ -44,7 +44,7 @@ public class CalculatorTest {
     assertTrue(thrown);
   }
 
-  @Test
+  @Test // 7
   public void testNegativesException() {
     boolean thrown = false;
     try {
@@ -55,9 +55,15 @@ public class CalculatorTest {
     assertTrue(thrown);
   }
 
-  @Test
+  @Test // 8
   public void testOverThousand() {
     assertEquals(2, Calculator.add("1001,2"));
+  }
+
+  @Test // 9
+  public void testNewDelimiter() {
+    assertEquals(3, Calculator.add("//;\n1,2"));
+    assertEquals(3, Calculator.add("//;\n1;2"));
   }
 
 } 
